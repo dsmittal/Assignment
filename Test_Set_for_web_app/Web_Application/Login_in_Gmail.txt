@@ -1,0 +1,18 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+@{Browser}        chrome
+@{Open url}       http://www.Amazon.com    http://www.gmail.com    # This will open the browser to begin test
+@{Enter Email Address}    dmittal795@gmail.com    # This will enter the email address in the user name text box
+@{Enter Password}    Champ12345
+
+*** Test Cases ***
+Gmail Login
+    [Documentation]    This is test 3
+    Open Browser    @{Open url}[1]    @{Browser}
+    Input Text    id=Email    robottest9
+    Click Button    id=next
+    Execute Async Javascript    ${CURDIR}/login.js
+    Sleep    4s
+    Close All Browsers

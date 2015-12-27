@@ -1,0 +1,41 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+@{Browser}        chrome
+@{Open url}       http://www.Amazon.com    http://www.gmail.com    # This will open the browser to begin test
+@{Enter Email Address}    dmittal795@gmail.com    # This will enter the email address in the user name text box
+@{Enter Password}    Champ12345
+
+*** Test Cases ***
+Browsing website for Todays deal and adding to cart
+    Set Test Documentation    Test Scenario 1:-    User is not a member but he can browse the web page
+    Open Browser    @{Open url}[0]    @{Browser}
+    Maximize Browser Window
+    Click Element    Xpath=//*[@id="nav-xshop"]/a[2]
+    Click Element    Xpath=//*[@id="widgetFilters"]/div[1]/div/span[1]/div/label/span
+    Sleep    8s    wait for page to load
+    Checkbox Should Be Selected    Xpath=//*[@id="widgetFilters"]/div[1]/div/span[1]/div/label/input
+    Click Button    Xpath=//*[@id="100_dealView_0"]/div/div[2]/div/div[5]/div[2]/div/span/span/span/button
+    Click Element    Xpath=//*[@id="nav-cart"]
+    Click Button    Xpath=//*[@id="sc-buy-box-ptc-button"]/span/input
+    Sleep    4s
+    Close All Browsers
+
+Login to the service of online shoping web site
+    Open Browser    @{Open url}[0]    @{Browser}
+    Maximize Browser Window
+    Click Link    id=nav-link-yourAccount
+    Input Text    id=ap_email    dmittal795@gmail.com
+    Input Password    id=ap_password    Champ12345
+    Click Button    id=signInSubmit
+    Wait Until Page Contains    Today's Deals
+    Input Text    css=#twotabsearchtextbox    iphone 6 case
+    Click Button    css=#nav-search > form >div.nav-right > div > input
+    Wait Until Page Contains    Next Page
+    Click Element    css=#result_0 > div > div:nth-child(4) > div.a-row.a-spacing-none > a > h2
+    Click Button    css=#add-to-cart-button
+    wait until page contains    Added to Cart
+    Click Element    css=#hlb-ptc-btn-native
+    Get Matching Xpath Count    //*[@id="hlb-subcart"]/div[1]/span/span[1]/b
+    Close Browser
