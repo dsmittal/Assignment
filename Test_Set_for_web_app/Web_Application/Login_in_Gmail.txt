@@ -5,7 +5,7 @@ Library           Selenium2Library
 @{Browser}        chrome
 @{Open url}       http://www.Amazon.com    http://www.gmail.com    # This will open the browser to begin test
 @{Enter Email Address}    dmittal795@gmail.com    # This will enter the email address in the user name text box
-@{Enter Password}    Champ12345
+@{Enter Password}    
 
 *** Test Cases ***
 Gmail Login
