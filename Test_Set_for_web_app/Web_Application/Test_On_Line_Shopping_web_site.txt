@@ -5,7 +5,7 @@ Library           Selenium2Library
 @{Browser}        chrome
 @{Open url}       http://www.Amazon.com    http://www.gmail.com    # This will open the browser to begin test
 @{Enter Email Address}    dmittal795@gmail.com    # This will enter the email address in the user name text box
-@{Enter Password}    Champ12345
+@{Enter Password}    
 
 *** Test Cases ***
 Browsing website for Todays deal and adding to cart
@@ -27,7 +27,7 @@ Login to the service of online shoping web site
     Maximize Browser Window
     Click Link    id=nav-link-yourAccount
     Input Text    id=ap_email    dmittal795@gmail.com
-    Input Password    id=ap_password    Champ12345
+    Input Password    id=ap_password    
     Click Button    id=signInSubmit
     Wait Until Page Contains    Today's Deals
     Input Text    css=#twotabsearchtextbox    iphone 6 case
